@@ -1,0 +1,24 @@
+.style{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    top: 60px;
+}
+
+.input{
+    height:40px;
+    border-radius: 5px;
+    position: relative;
+    top: 70px;
+}
+
+.button{
+    background-color: #5C82FF;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    border-color: #5C82FF;
+    color: aliceblue;
+    position: relative;
+    top: 80px;
+}

@@ -1,0 +1,26 @@
+.form{
+    padding-left: 10%;
+    position: relative;
+    top: 80px;
+}
+.input-todo{
+    height:40px;
+    width: 65%;
+    border-radius: 5px;
+}
+.form-input{
+    padding-left: 8%;
+}
+.button-todo{
+    background-color: #5C82FF;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    border-color: #5C82FF;
+    color: aliceblue;
+    margin-left: 55%;
+}
+.link{
+    color: #5C82FF;
+    padding-right: 10%;
+}

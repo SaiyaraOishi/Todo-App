@@ -1,0 +1,12 @@
+.dashboard{
+    padding-left: 20%;
+    display: inline;
+    padding-right: 40%;
+}
+.link-dashboard{
+     color: #5C82FF;
+}
+.main-dashboard{
+    position: relative;
+    top: 80px;
+}

@@ -1,0 +1,21 @@
+.body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline;
+    padding-left: 10%;
+    padding-right: 20%;
+}
+.link{
+    text-align: right;
+    color: #5C82FF;
+    padding-right: 10%;
+}
+.body-name{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline;
+    padding-left: 28%;
+    padding-right: 5%;
+}
+.main{
+    position:relative;
+    top: 60px;
+}
