@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {UserContext} from "./Context.js";
+import "./TodoList.css";
 
 function TodoList(){
 
@@ -10,7 +11,7 @@ function TodoList(){
         <>
         <ol>
             {todolist.map(todo=>(
-                <li>{todo.title}</li>
+                <li className="todo-list">{todo.title}</li>
             ))}
         </ol>
         </>
