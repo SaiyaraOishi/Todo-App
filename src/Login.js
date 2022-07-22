@@ -8,22 +8,20 @@ function Login() {
   const [name, setName] = useState("");
   const {setName:setContextName} = useContext(UserContext);
 
+  const formIsValid=name.trim().length>0;
 
   const navigate = useNavigate();
   function handleLoginClick() {
-    setContextName(name);
-    navigate("/dashboard");
-    
+    if(formIsValid){
+      setContextName(name);
+      navigate("/dashboard");
+    }
   }
 
   const handleNameChange = (event) => {
     setName(event.target.value);
   }
 
-  // const handleFormSubmit=(event)=>{
-  //   event.preventDefault();
-  //   // setUsername(name);
-  // }
 
 
   return (
@@ -33,12 +31,10 @@ function Login() {
           <div>
             <input className='input' type="text" placeholder="Your name" name="name" id="name" value={name} onChange={handleNameChange} />
           </div>
+          <div className="error">{!formIsValid && <p>*Name is required</p>}</div>
         </form><br /><br />
         <button type="submit" className='button' onClick={handleLoginClick}>Next</button><br />
       </div>
-      {/* <div>
-      <UserContextProvider name={name}/>
-    </div> */}
     </>
   );
 }

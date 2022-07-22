@@ -1,6 +1,5 @@
 .style{
     text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: relative;
     top: 60px;
 }
@@ -21,4 +20,8 @@
     color: aliceblue;
     position: relative;
     top: 80px;
+}
+.error{
+    margin-top: 70px;
+    color: red;
 }

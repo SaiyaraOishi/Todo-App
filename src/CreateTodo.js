@@ -11,11 +11,15 @@ function CreateTodo(){
     const [description,setDescription]=useState("");
     const {setTodo:setContextTodo}=useContext(UserContext);
 
+    const titleIsValid=title.trim().length>0;
+    const descriptionIsValid=description.trim().length>0;
+
     const navigate=useNavigate();
     function handleCreateClick(){
-
-        setContextTodo({title:title,description:description,date: Date(Date.now())});
-        navigate("/dashboard",{replace:true});
+        if(titleIsValid && descriptionIsValid){
+            setContextTodo({title:title,description:description,date: Date(Date.now())});
+            navigate("/dashboard",{replace:true});
+        }
     }
 
     const handleTitleChange = (e) =>{
@@ -41,12 +45,14 @@ function CreateTodo(){
                 <label htmlFor="title">Title</label><br/>
                 <input className="input-todo" type="text" placeholder="Enter title here" name="title" id="title" value={title} onChange={handleTitleChange}/>
             </div>
+            <div className="error-form">{!titleIsValid && <p>*Title is required</p>}</div>
             <br/>
             <br/>
             <div>
                 <label htmlFor="description">Description</label><br/>
                 <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" value={description} onChange={handleDescriptionChange}/>
             </div>
+            <div className="error-form">{!descriptionIsValid && <p>*Description is required</p>}</div>
             <br/>
             <button type="button" className='button-todo' onClick={handleCreateClick}>Create</button><br />
             </form>
