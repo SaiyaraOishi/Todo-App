@@ -1,4 +1,5 @@
 import React, { createContext, useState} from "react";
+import { v4 as uuid } from "uuid";
 
 const initialState={
     name:"",
@@ -16,8 +17,9 @@ function UserContextProvider(props) {
     }
 
     const setTodo = (newtodo) =>{
+        const unique_id = uuid();
         const array=[...state.todolist];
-        array.push({...newtodo});
+        array.push({id: unique_id,...newtodo});
         setState({...state,todolist:array});
     }
 

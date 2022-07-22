@@ -13,7 +13,8 @@ function CreateTodo(){
 
     const navigate=useNavigate();
     function handleCreateClick(){
-        setContextTodo({title:title,description:description});
+
+        setContextTodo({title:title,description:description,date: Date(Date.now())});
         navigate("/dashboard",{replace:true});
     }
 

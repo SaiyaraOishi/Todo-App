@@ -11,7 +11,10 @@ function TodoList(){
         <>
         <ol>
             {todolist.map(todo=>(
-                <li className="todo-list">{todo.title}</li>
+                <li  className="todo-list">{todo.title}     &nbsp; &nbsp;    {todo.date} 
+                &nbsp; &nbsp;
+                <input type="checkbox" />
+                </li>
             ))}
         </ol>
         </>
