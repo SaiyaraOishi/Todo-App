@@ -23,9 +23,23 @@ function UserContextProvider(props) {
         setState({...state,todolist:array});
     }
 
+    const deleteTodo = (todo) => {
+        const newTodolist=[...state.todolist].filter((item)=>item.id!==todo.id);
+        setState({...state,todolist: newTodolist});
+    }
+
+    const handleStrikethrough = (checkValue,id) => {
+        const newtodolist=state.todolist;
+        const index=newtodolist.findIndex(todo=>todo.id===id);
+        newtodolist[index].isCompleted=checkValue;
+        setState({...state,todolist: newtodolist})
+      }
+
+    
+
     return (
         <>
-            <UserContext.Provider value={{...state,setName,setTodo}}>
+            <UserContext.Provider value={{...state,setName,setTodo,deleteTodo,handleStrikethrough}}>
                 {props.children}
             </UserContext.Provider>
         </>

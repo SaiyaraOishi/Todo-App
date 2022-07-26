@@ -1,26 +1,24 @@
 import React, { useContext,useState} from "react";
+import { useNavigate } from "react-router-dom";
 import {UserContext} from "./Context.js";
 import "./TodoList.css";
 
 function TodoList(){
 
-    const {todolist}=useContext(UserContext);
-    const [check,setCheck]=useState(false);
-    
-    // console.log(todolist);
+    const {todolist,handleStrikethrough}=useContext(UserContext);
 
-    // if(check){
-    //     deleteTodo(todo)
-    // setCheck(false)
+    // const navigate = useNavigate();
+    // const handleTodoUpdate = () =>{
+    //     navigate("/createtodo");
     // }
 
     return (
         <>
         <ol>
             {todolist.map(todo=>(
-                <li  className="todo-list">{todo.title}     &nbsp; &nbsp;    {todo.date} 
+                <li  className={`todo-list ${todo.isCompleted ? "strike-through" : ""}`}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
                 &nbsp; &nbsp;
-                <input type="checkbox" value={check} onChange={()=>setCheck(true)} />
+                <input type="checkbox" checked={todo.isCompleted} onChange={(e)=>handleStrikethrough(e.target.checked,todo.id)}/>
                 </li>
             ))}
         </ol>

@@ -9,7 +9,7 @@ function CreateTodo(){
 
     const [title,setTitle]=useState("");
     const [description,setDescription]=useState("");
-    const {setTodo:setContextTodo}=useContext(UserContext);
+    const {setTodo}=useContext(UserContext);
 
     const titleIsValid=title.trim().length>0;
     const descriptionIsValid=description.trim().length>0;
@@ -17,7 +17,7 @@ function CreateTodo(){
     const navigate=useNavigate();
     function handleCreateClick(){
         if(titleIsValid && descriptionIsValid){
-            setContextTodo({title:title,description:description,date: Date(Date.now())});
+            setTodo({title:title,description:description,date: Date(Date.now()),isCompleted: false});
             navigate("/dashboard",{replace:true});
         }
     }
