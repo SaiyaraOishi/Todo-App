@@ -10,25 +10,26 @@ export default function UpdateForm(){
     const [title,setTitle]=useState("");
     const [description,setDescription]=useState("");
     const {id} = useParams();
-    const {todolist}=useContext(UserContext);
+    const {getSingleTodo}=useContext(UserContext);
 
     const navigate=useNavigate();
     const handleUpdateClick = () =>{
+
         navigate("/dashboard");
     }
 
     const handleCancelClick =( )=>{
         navigate("/dashboard");
     }
+    const todo=getSingleTodo(id);
+    useEffect(()=>{
+        if(todo){
+            setTitle(todo.title);
+            setDescription(todo.description);
+        }
 
-    // useEffect(()=>{
-    const todo=todolist.find(todo=>todo.id===id);
-    console.log(todo);
-    // console.log(todo.title);
-    // setTitle(todo.title);
-    // console.log(title);
-    // setDescription(todo.description);
-    // },[]);
+    },[todo]);
+    
 
     return (
         <>
@@ -41,16 +42,14 @@ export default function UpdateForm(){
             <form className="form-input">
             <div>
                 <label htmlFor="title">Title</label><br/>
-                <input className="input-todo" type="text" placeholder="Enter title here" name="title" id="title" />
+                <input className="input-todo" type="text" placeholder="Enter title here" name="title" id="title" value={title} onChange={(e)=>setTitle(e.target.value)}/>
             </div>
-            {/* <div className="error-form">{!titleIsValid && <p>*Title is required</p>}</div> */}
             <br/>
             <br/>
             <div>
                 <label htmlFor="description">Description</label><br/>
-                <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" />
+                <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" value={description} onChange={(e)=>setDescription(e.target.value)}/>
             </div>
-            {/* <div className="error-form">{!descriptionIsValid && <p>*Description is required</p>}</div> */}
             <br/>
             <button type="button" className='button-todo'  onClick={handleCancelClick}>Cancel</button>
             <button type="button" className='button-todo' onClick={handleUpdateClick}>Update</button><br />
