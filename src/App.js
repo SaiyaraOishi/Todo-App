@@ -4,6 +4,7 @@ import Login from './Login';
 import Dashboard from "./Dashboard";
 import CreateTodo from './CreateTodo';
 import {UserContextProvider} from "./Context.js";
+import UpdateForm from './UpdateForm';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<Login/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/createtodo" element={<CreateTodo/>}/>
+      <Route path="/todo/:id" element={<UpdateForm />} />
     </Routes>
     
     </BrowserRouter>

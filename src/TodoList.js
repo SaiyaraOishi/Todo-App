@@ -7,16 +7,16 @@ function TodoList(){
 
     const {todolist,handleStrikethrough}=useContext(UserContext);
 
-    // const navigate = useNavigate();
-    // const handleTodoUpdate = () =>{
-    //     navigate("/createtodo");
-    // }
+    const navigate = useNavigate();
+    const handleTodoUpdate = (id) =>{
+        navigate(`/todo/${id}`);
+    }
 
     return (
         <>
         <ol>
             {todolist.map(todo=>(
-                <li  className={`todo-list ${todo.isCompleted ? "strike-through" : ""}`}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
+                <li  className={`todo-list ${todo.isCompleted ? "strike-through" : ""}`} onClick={()=>handleTodoUpdate(todo.id)}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
                 &nbsp; &nbsp;
                 <input type="checkbox" checked={todo.isCompleted} onChange={(e)=>handleStrikethrough(e.target.checked,todo.id)}/>
                 </li>
