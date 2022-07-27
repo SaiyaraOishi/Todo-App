@@ -10,12 +10,12 @@ export default function UpdateForm(){
     const [title,setTitle]=useState("");
     const [description,setDescription]=useState("");
     const {id} = useParams();
-    const {getSingleTodo}=useContext(UserContext);
+    const {getSingleTodo,updateTodo}=useContext(UserContext);
 
     const navigate=useNavigate();
     const handleUpdateClick = () =>{
-
-        navigate("/dashboard");
+        updateTodo(id,{title: title,description: description,date: Date(Date.now())});
+        navigate("/dashboard",{replace:true});
     }
 
     const handleCancelClick =( )=>{
@@ -31,6 +31,13 @@ export default function UpdateForm(){
     },[todo]);
     
 
+    const handleTitleChange =(e)=>{
+        setTitle(e.target.value);
+    }
+    const handleDescChange =(e)=>{
+        setDescription(e.target.value);
+    }
+
     return (
         <>
         <Navbar/>
@@ -42,13 +49,13 @@ export default function UpdateForm(){
             <form className="form-input">
             <div>
                 <label htmlFor="title">Title</label><br/>
-                <input className="input-todo" type="text" placeholder="Enter title here" name="title" id="title" value={title} onChange={(e)=>setTitle(e.target.value)}/>
+                <input className="input-todo" type="text" placeholder="Enter title here" name="title" id="title" value={title} onChange={handleTitleChange}/>
             </div>
             <br/>
             <br/>
             <div>
                 <label htmlFor="description">Description</label><br/>
-                <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" value={description} onChange={(e)=>setDescription(e.target.value)}/>
+                <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" value={description} onChange={handleDescChange}/>
             </div>
             <br/>
             <button type="button" className='button-todo'  onClick={handleCancelClick}>Cancel</button>

@@ -40,13 +40,18 @@ function UserContextProvider(props) {
         return todo;
     }
 
-    const updateTodo = () =>{
-        
-    }
+    const updateTodo = (id,todo) => {
+        const newList = state.todolist;
+        const vtodo=newList.find(todo=>todo.id===id);
+        vtodo.title=todo.title;
+        vtodo.description=todo.description;
+        vtodo.date=todo.date;
+        setState({ ...state, todolist: newList });
+      };
 
     return (
         <>
-            <UserContext.Provider value={{...state,setName,setTodo,deleteTodo,handleStrikethrough,getSingleTodo}}>
+            <UserContext.Provider value={{...state,setName,setTodo,deleteTodo,handleStrikethrough,getSingleTodo,updateTodo}}>
                 {props.children}
             </UserContext.Provider>
         </>
