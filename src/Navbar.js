@@ -1,10 +1,18 @@
 import React,{useContext,useEffect} from "react";
 import "./Navbar.css";
 import {UserContext} from "./Context.js";
+import {useNavigate} from "react-router-dom";
 
 function Navbar(){
 
     const {name}=useContext(UserContext);
+    const navigate=useNavigate();
+
+    useEffect(()=>{
+        if(!name){
+            navigate("/");
+        }
+    });
 
     return(
         <>
