@@ -16,5 +16,11 @@
     padding-right: 18px;
     padding-left: 18px;
     text-align: right;
+    position:fixed;
+    left: 65%;
+}
+.checkbox-style{
+    position: fixed;
+    left: 62%;
 }
 

@@ -19,11 +19,9 @@ function TodoList(){
                 <div className="todo-list">
                 <li  className={` ${todo.isCompleted ? "strike-through" : ""}`}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
                 &nbsp; &nbsp;
-                <input type="checkbox" checked={todo.isCompleted} onChange={(e)=>handleStrikethrough(e.target.checked,todo.id)}/>
+                <input type="checkbox" className="checkbox-style" checked={todo.isCompleted} onChange={(e)=>handleStrikethrough(e.target.checked,todo.id)}/>
                 &nbsp; &nbsp;
-                <div>
                 <button className="button-edit"  onClick={()=>handleTodoUpdate(todo.id)}>Edit</button>
-                </div>
                 </li>
                 </div>
             ))}

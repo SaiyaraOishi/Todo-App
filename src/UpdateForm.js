@@ -26,9 +26,6 @@ export default function UpdateForm(){
         navigate("/dashboard",{replace:true});
     }
 
-    const handleCancelClick =( )=>{
-        navigate("/dashboard");
-    }
     const todo=getSingleTodo(id);
     useEffect(()=>{
         if(todo){
@@ -68,7 +65,6 @@ export default function UpdateForm(){
                 <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" value={description} onChange={handleDescChange}/>
             </div>
             <br/>
-            <button type="button" className='button-todo'  onClick={handleCancelClick}>Cancel</button>
 
             { !todo.isCompleted && <button type="button" className='button-todo' onClick={handleUpdateClick}>Update</button>}<br />
             </form>
