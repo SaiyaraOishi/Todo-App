@@ -9,15 +9,23 @@ function CreateTodo(){
 
     const [title,setTitle]=useState("");
     const [description,setDescription]=useState("");
-    const {setTodo}=useContext(UserContext);
+    const {setTodo,todolist}=useContext(UserContext);
 
     const titleIsValid=title.trim().length>0;
     const descriptionIsValid=description.trim().length>0;
 
     const navigate=useNavigate();
     function handleCreateClick(){
+        const current = new Date();
+        const date = `${current.getDate()} ${current.toLocaleString("default", {
+        month: "short",
+      })}, ${current.getFullYear()}`;
         if(titleIsValid && descriptionIsValid){
-            setTodo({title:title,description:description,date: Date(Date.now()),isCompleted: false});
+            setTodo({title:title,description:description,date: date,isCompleted: false});
+            localStorage.setItem(
+                "todos",
+                JSON.stringify([...todolist,{title:title,description:description,date: date,isCompleted: false}])
+              );
             navigate("/dashboard",{replace:true});
         }
     }

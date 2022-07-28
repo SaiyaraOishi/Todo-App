@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 function Navbar(){
 
     const {name}=useContext(UserContext);
+    
     const navigate=useNavigate();
 
     useEffect(()=>{

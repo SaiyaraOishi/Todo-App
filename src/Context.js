@@ -2,8 +2,8 @@ import React, { createContext, useState} from "react";
 import { v4 as uuid } from "uuid";
 
 const initialState={
-    name:"",
-    todolist:[]
+    name:`${localStorage.getItem("user")}`,
+    todolist: JSON.parse(localStorage.getItem("todos"))
 }
 
 const UserContext = createContext({...initialState});

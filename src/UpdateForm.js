@@ -14,7 +14,11 @@ export default function UpdateForm(){
 
     const navigate=useNavigate();
     const handleUpdateClick = () =>{
-        updateTodo(id,{title: title,description: description,date: Date(Date.now())});
+        const current = new Date();
+        const date = `${current.getDate()} ${current.toLocaleString("default", {
+        month: "short",
+      })}, ${current.getFullYear()}`;
+        updateTodo(id,{title: title,description: description,date: date});
         navigate("/dashboard",{replace:true});
     }
 
@@ -29,6 +33,8 @@ export default function UpdateForm(){
         }
 
     },[todo]);
+
+    console.log(todo);
     
 
     const handleTitleChange =(e)=>{
@@ -59,7 +65,8 @@ export default function UpdateForm(){
             </div>
             <br/>
             <button type="button" className='button-todo'  onClick={handleCancelClick}>Cancel</button>
-            <button type="button" className='button-todo' onClick={handleUpdateClick}>Update</button><br />
+
+            { !todo.isCompleted && <button type="button" className='button-todo' onClick={handleUpdateClick}>Update</button>}<br />
             </form>
         </div>
         <Footer/>
