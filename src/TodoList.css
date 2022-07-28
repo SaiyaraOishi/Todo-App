@@ -6,8 +6,15 @@
     position: relative;
     left: 20%;
     width: 48%;
+    
 }
 .strike-through{
     text-decoration: line-through;
+}
+.button-edit{
+    display: inline;
+    padding-right: 18px;
+    padding-left: 18px;
+    text-align: right;
 }
 

@@ -22,10 +22,10 @@ function CreateTodo(){
       })}, ${current.getFullYear()}`;
         if(titleIsValid && descriptionIsValid){
             setTodo({title:title,description:description,date: date,isCompleted: false});
-            localStorage.setItem(
-                "todos",
-                JSON.stringify([...todolist,{title:title,description:description,date: date,isCompleted: false}])
-              );
+            // localStorage.setItem(
+            //     "todos",
+            //     JSON.stringify([...todolist,{title:title,description:description,date: date,isCompleted: false}])
+            //   );
             navigate("/dashboard",{replace:true});
         }
     }

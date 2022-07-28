@@ -16,12 +16,16 @@ function TodoList(){
         <>
         <ol>
             {todolist.map(todo=>(
-                <li  className={`todo-list ${todo.isCompleted ? "strike-through" : ""}`}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
+                <div className="todo-list">
+                <li  className={` ${todo.isCompleted ? "strike-through" : ""}`}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
                 &nbsp; &nbsp;
                 <input type="checkbox" checked={todo.isCompleted} onChange={(e)=>handleStrikethrough(e.target.checked,todo.id)}/>
                 &nbsp; &nbsp;
-                <button  onClick={()=>handleTodoUpdate(todo.id)}>Edit</button>
+                <div>
+                <button className="button-edit"  onClick={()=>handleTodoUpdate(todo.id)}>Edit</button>
+                </div>
                 </li>
+                </div>
             ))}
         </ol>
         </>

@@ -14,7 +14,7 @@ function Login() {
   function handleLoginClick() {
     if(formIsValid){
       setContextName(name);
-      localStorage.setItem("user",name);
+      // localStorage.setItem("user",name);
       navigate("/dashboard");
     }
   }
