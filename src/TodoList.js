@@ -9,8 +9,6 @@ function TodoList(){
 
     const {todolist,handleStrikethrough}=useContext(UserContext);
 
-    // const todos=localStorage.getItem("todos");
-
     const navigate = useNavigate();
     const handleTodoUpdate = (id) =>{
         navigate(`/todo/${id}`);

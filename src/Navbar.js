@@ -14,11 +14,6 @@ function Navbar(){
         }
     });
 
-    // const handleLogoutClick = () =>{
-    //     localStorage.removeItem("user");
-    //     localStorage.removeItem("todos");
-    // }
-
     return(
         <>
         <div className="main">

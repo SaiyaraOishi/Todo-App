@@ -12,7 +12,7 @@ function CreateTodo(){
     const {setTodo}=useContext(UserContext);
 
     const titleIsValid=title.trim().length>0;
-    const descriptionIsValid=description.trim().length>0;
+    // const descriptionIsValid=description.trim().length>0;
 
     const navigate=useNavigate();
     function handleCreateClick(){
@@ -20,12 +20,8 @@ function CreateTodo(){
         const date = `${current.getDate()} ${current.toLocaleString("default", {
         month: "short",
       })}, ${current.getFullYear()}`;
-        if(titleIsValid && descriptionIsValid){
+        if(titleIsValid){
             setTodo({title:title,description:description,date: date,isCompleted: false});
-            // localStorage.setItem(
-            //     "todos",
-            //     JSON.stringify([...todolist,{title:title,description:description,date: date,isCompleted: false}])
-            //   );
             navigate("/dashboard",{replace:true});
         }
     }
@@ -60,7 +56,6 @@ function CreateTodo(){
                 <label htmlFor="description">Description</label><br/>
                 <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" value={description} onChange={handleDescriptionChange}/>
             </div>
-            <div className="error-form">{!descriptionIsValid && <p>*Description is required</p>}</div>
             <br/>
             <button type="button" className='button-todo' onClick={handleCreateClick}>Create</button><br />
             </form>

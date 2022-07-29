@@ -10,7 +10,7 @@ export default function UpdateForm(){
     const [title,setTitle]=useState("");
     const [description,setDescription]=useState("");
     const {id} = useParams();
-    const {getSingleTodo,updateTodo,todolist}=useContext(UserContext);
+    const {getSingleTodo,updateTodo}=useContext(UserContext);
 
     const navigate=useNavigate();
     const handleUpdateClick = () =>{
@@ -19,10 +19,6 @@ export default function UpdateForm(){
         month: "short",
       })}, ${current.getFullYear()}`;
         updateTodo(id,{title: title,description: description,date: date});
-        // localStorage.setItem(
-        //     "todos",
-        //     JSON.stringify([...todolist,{title:title,description:description,date: date}])
-        //   );
         navigate("/dashboard",{replace:true});
     }
 
