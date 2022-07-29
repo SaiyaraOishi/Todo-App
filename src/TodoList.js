@@ -3,9 +3,13 @@ import { useNavigate } from "react-router-dom";
 import {UserContext} from "./Context.js";
 import "./TodoList.css";
 
+
+
 function TodoList(){
 
     const {todolist,handleStrikethrough}=useContext(UserContext);
+
+    // const todos=localStorage.getItem("todos");
 
     const navigate = useNavigate();
     const handleTodoUpdate = (id) =>{
@@ -17,7 +21,7 @@ function TodoList(){
         <ol>
             {todolist.map(todo=>(
                 <div className="todo-list">
-                <li  className={` ${todo.isCompleted ? "strike-through" : ""}`}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
+                <li  className={`${todo.isCompleted ? "strike-through" : ""}`}>{todo.title}     &nbsp; &nbsp;    {todo.date} 
                 &nbsp; &nbsp;
                 <input type="checkbox" className="checkbox-style" checked={todo.isCompleted} onChange={(e)=>handleStrikethrough(e.target.checked,todo.id)}/>
                 &nbsp; &nbsp;

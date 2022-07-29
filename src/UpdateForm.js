@@ -21,7 +21,7 @@ export default function UpdateForm(){
         updateTodo(id,{title: title,description: description,date: date});
         // localStorage.setItem(
         //     "todos",
-        //     JSON.stringify([...todolist,{title:title,description:description,date: date,isCompleted: false}])
+        //     JSON.stringify([...todolist,{title:title,description:description,date: date}])
         //   );
         navigate("/dashboard",{replace:true});
     }
@@ -65,7 +65,6 @@ export default function UpdateForm(){
                 <input className="input-todo" type="text" placeholder="Enter description here" name="description" id="description" value={description} onChange={handleDescChange}/>
             </div>
             <br/>
-
             { !todo.isCompleted && <button type="button" className='button-todo' onClick={handleUpdateClick}>Update</button>}<br />
             </form>
         </div>

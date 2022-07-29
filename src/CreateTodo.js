@@ -9,7 +9,7 @@ function CreateTodo(){
 
     const [title,setTitle]=useState("");
     const [description,setDescription]=useState("");
-    const {setTodo,todolist}=useContext(UserContext);
+    const {setTodo}=useContext(UserContext);
 
     const titleIsValid=title.trim().length>0;
     const descriptionIsValid=description.trim().length>0;
