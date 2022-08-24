@@ -15,7 +15,6 @@ export default function UpdateTodo(){
 
     const todo = todos.find((todo=>todo.id===id));
     const {isCompleted} = todo;
-    console.log(isCompleted);
     useEffect(()=>{
         if(todo){
             setTitle(todo.title);
@@ -42,7 +41,7 @@ export default function UpdateTodo(){
         <Navbar/>
         <div className="relative mt-16 ml-28 mr-28">
         <Link to="/dashboard" className="text-blue-600 underline">←Back</Link>
-        <div className="mt-4">Create new Todo</div>
+        <div className="mt-4">Update Todo</div>
             <form className="mt-12">
                 <div>
                 <label htmlFor="title" className="ml-28 ">Title</label><br/>

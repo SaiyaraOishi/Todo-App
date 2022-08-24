@@ -9,11 +9,15 @@ export default function Login(){
     const [name,setName]=useState("");
     const dispatch = useDispatch();
 
+    const formIsValid=name.trim().length>0;
+
     const navigate = useNavigate();
 
     const onNextClick = () =>{
+        if(formIsValid){
         dispatch(addName(name));
         navigate("/dashboard");
+        }
     }
 
     const handleNameChange = (e) => {
@@ -26,6 +30,7 @@ export default function Login(){
         <div className="flex justify-center mt-28">
         <input className="rounded-md border border-black text-center px-4 py-2" type="text" placeholder="Enter name" id="name" value={name} onChange={handleNameChange}/>
         </div>
+        <div className="text-red-800 text-center">{!formIsValid && <p>*Name is required</p>}</div>
         <div className="flex justify-center mt-28">
         <button type="submit" className="bg-blue-500 px-4 py-2 text-white rounded-md" onClick={onNextClick}>Next</button>
         </div>

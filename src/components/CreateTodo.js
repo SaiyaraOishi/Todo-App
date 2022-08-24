@@ -11,14 +11,18 @@ export default function CreateTodo(){
     const [description,setDescription]=useState("");
     const dispatch = useDispatch();
 
+    const titleIsValid=title.trim().length>0;
+
     const navigate = useNavigate();
     const onCreateClick = () => {
         const current = new Date();
         const date = `${current.getDate()} ${current.toLocaleString("default", {
         month: "short",
       })}, ${current.getFullYear()}`;
+      if(titleIsValid){
         dispatch(addTodo({title:title, description:description, isCompleted: false, createdAt: date}));
         navigate("/dashboard",{replace:true});
+      }
     }
 
     const handleTitleChange = (e) =>{
@@ -42,6 +46,7 @@ export default function CreateTodo(){
                 <label htmlFor="title" className="ml-28 ">Title</label><br/>
                 <input type="text" placeholder="Enter title" id="title" className="rounded-sm ml-28 px-96 py-4 border border-black text-left" value={title} onChange={handleTitleChange}/>
                 </div>
+                <div className="text-red-800 text-center">{!titleIsValid && <p>*Title is required</p>}</div>
                 <br/>
                 <div>
                 <label htmlFor="description" className="ml-28 ">Description</label><br/>

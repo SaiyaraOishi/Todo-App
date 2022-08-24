@@ -5,6 +5,7 @@ import CreateTodo from "./components/CreateTodo";
 import {Provider} from "react-redux";
 import store from "./redux/store";
 import UpdateTodo from "./components/UpdateTodo";
+import ViewTodo from "./components/ViewTodo";
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
     <Route path="/" element={<Login/>}/>
     <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/createtodo" element={<CreateTodo/>}/>
-    <Route path="/todo/:id" element={<UpdateTodo/>}/>
+    <Route path="/todo/update/:id" element={<UpdateTodo/>}/>
+    <Route path="/todo/view/:id" element={<ViewTodo/>}/>
    </Routes>
    </BrowserRouter>
    </Provider>

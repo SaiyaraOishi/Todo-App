@@ -13,7 +13,11 @@ export default function Todo({todo}){
 
     const navigate=useNavigate();
     const handleUpdateClick = (id) =>{
-        navigate(`/todo/${id}`);
+        navigate(`/todo/update/${id}`);
+    }
+
+    const handleViewClick = (id) => {
+        navigate(`/todo/view/${id}`);
     }
 
     return(
@@ -22,6 +26,7 @@ export default function Todo({todo}){
             <div className={`${isCompleted && "line-through"}`}>{title} &nbsp; &nbsp; {createdAt}</div>
             <input type="checkbox" className="ml-auto" checked={isCompleted} onChange={() => handleStatusChange(id)} />
             <button type="submit" className="bg-blue-500 px-8 py-1 text-white rounded-md ml-4" onClick={()=>handleUpdateClick(id)}>Edit</button>
+            <button type="submit" className="bg-blue-500 px-8 py-1 text-white rounded-md ml-4" onClick={()=>handleViewClick(id)}>View</button>
         </div>
         </>
     )
