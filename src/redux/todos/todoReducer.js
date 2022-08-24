@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETED } from "./actionType";
+import { ADD_TODO, COMPLETED, UPDATE_TODO } from "./actionType";
 import { v4 as uuid } from "uuid";
 
 const initialState = [];
@@ -27,6 +27,18 @@ const todoReducer = (state=initialState,action) => {
                     ...todo,
                     isCompleted: !todo.isCompleted,
                 };
+            });
+
+        case UPDATE_TODO:
+            return state.map((todo) => {
+                if(todo.id!==action.payload.id){
+                    return todo;
+                }
+                return {
+                    ...todo,
+                    title: action.payload.title,
+                    description: action.payload.description
+                }
             });
 
         default:

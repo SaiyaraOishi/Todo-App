@@ -4,6 +4,7 @@ import Dashboard from "./components/Dashboard";
 import CreateTodo from "./components/CreateTodo";
 import {Provider} from "react-redux";
 import store from "./redux/store";
+import UpdateTodo from "./components/UpdateTodo";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <Route path="/" element={<Login/>}/>
     <Route path="/dashboard" element={<Dashboard/>}/>
     <Route path="/createtodo" element={<CreateTodo/>}/>
+    <Route path="/todo/:id" element={<UpdateTodo/>}/>
    </Routes>
    </BrowserRouter>
    </Provider>
