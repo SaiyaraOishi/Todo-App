@@ -19,8 +19,9 @@ export default function Todo({todo}){
     return(
         <>
         <div className="flex justify-start items-center p-2">
-            <div className={`${isCompleted && "line-through"}`} onClick={()=>handleUpdateClick(id)}>{title} &nbsp; &nbsp; {createdAt}</div>
+            <div className={`${isCompleted && "line-through"}`}>{title} &nbsp; &nbsp; {createdAt}</div>
             <input type="checkbox" className="ml-auto" checked={isCompleted} onChange={() => handleStatusChange(id)} />
+            <button type="submit" className="bg-blue-500 px-8 py-1 text-white rounded-md ml-4" onClick={()=>handleUpdateClick(id)}>Edit</button>
         </div>
         </>
     )
