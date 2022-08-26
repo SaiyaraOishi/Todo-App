@@ -12,7 +12,7 @@ export const addTodo = ({ title, description, isCompleted, createdAt }) => {
     }
 }
 
-export const completed = ({id , checkValue}) => {
+export const completed = ({ id, checkValue }) => {
     return {
         type: COMPLETED,
         payload: {

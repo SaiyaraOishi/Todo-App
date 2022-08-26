@@ -24,21 +24,11 @@ const todoReducer = (state = initialState, action) => {
         case COMPLETED:
             const newtodolist = state.todolist;
             const index = newtodolist.findIndex(todo => todo.id === action.payload.id);
-            newtodolist[index].isCompleted = action.payload.checkValue;
+            newtodolist[index].isCompleted = !newtodolist[index].isCompleted;
             return {
                 ...state,
-                todolist: newtodolist,
+                todolist: [...newtodolist],
             }
-        // return state.todolist.map((todo) => {
-        //     if (todo.id !== action.payload) {
-        //         return todo;
-        //     }
-
-        //     return {
-        //         ...todo,
-        //         isCompleted: !todo.isCompleted,
-        //     };
-        // });
 
         case UPDATE_TODO:
             const newList = state.todolist;
@@ -47,18 +37,8 @@ const todoReducer = (state = initialState, action) => {
             vtodo.description = action.payload.description;
             return {
                 ...state,
-                todolist: newList,
+                todolist: [...newList],
             }
-        // return state.todolist.map((todo) => {
-        //     if (todo.id !== action.payload.id) {
-        //         return todo;
-        //     }
-        //     return {
-        //         ...todo,
-        //         title: action.payload.title,
-        //         description: action.payload.description
-        //     }
-        // });
 
         case GET_SINGLE_TODO:
             const single_todo = state.todolist.find((todo) => todo.id === action.payload);
