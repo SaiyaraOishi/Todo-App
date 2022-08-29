@@ -22,7 +22,7 @@ export default function Navbar() {
             <div className="flex relative mt-16 ml-28 mr-28">
                 <div className="font-bold text-lg">SimpleToDo</div>
                 <div className="ml-auto font-bold">{name}</div>
-                <div to="/" className="ml-8 text-blue-600 underline" onClick={handleLogoutClick}>Logout</div>
+                <div to="/" className="ml-8 text-blue-600 underline cursor-pointer" onClick={handleLogoutClick}>Logout</div>
             </div>
         </>
     )
