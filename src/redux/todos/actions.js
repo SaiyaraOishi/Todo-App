@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETED, UPDATE_TODO, GET_SINGLE_TODO } from "./actionType";
+import { ADD_TODO, COMPLETED, UPDATE_TODO, GET_SINGLE_TODO, LOGOUT } from "./actionType";
 
 export const addTodo = ({ title, description, isCompleted, createdAt }) => {
     return {
@@ -37,5 +37,11 @@ export const getSingleTodo = (id) => {
     return {
         type: GET_SINGLE_TODO,
         payload: id
+    }
+}
+
+export const todoLogout = () => {
+    return {
+        type: LOGOUT,
     }
 }

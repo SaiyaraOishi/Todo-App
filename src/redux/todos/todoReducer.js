@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETED, GET_SINGLE_TODO, UPDATE_TODO } from "./actionType";
+import { ADD_TODO, COMPLETED, GET_SINGLE_TODO, LOGOUT, UPDATE_TODO } from "./actionType";
 import { v4 as uuid } from "uuid";
 
 const initialState = {
@@ -46,6 +46,9 @@ const todoReducer = (state = initialState, action) => {
                 ...state,
                 todo: single_todo,
             }
+
+        case LOGOUT:
+            return initialState;
 
         default:
             return state;
