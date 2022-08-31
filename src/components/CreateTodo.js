@@ -30,17 +30,7 @@ export default function CreateTodo() {
             dispatch(addTodo({ title: values.title, description: values.description, isCompleted: false, createdAt: date }));
             navigate("/dashboard", { replace: true });
         }
-    })
-
-    // const handleTitleChange = (e) => {
-    //     setTitle(e.target.value);
-    //     console.log(e.target.value)
-    // }
-
-    // const handleDescriptionChange = (e) => {
-    //     setDescription(e.target.value);
-    //     console.log(e.target.value)
-    // }
+    });
 
     return (
         <>
