@@ -5,23 +5,27 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todos/actions";
 import { useFormik } from "formik";
 
+const initialValues = {
+    title: "",
+    description: ""
+}
+const validate = values => {
+    let errors = {};
+    if (!values.title) {
+        errors.title = "*Title is required";
+    }
+    return errors;
+}
+
+
 export default function CreateTodo() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const formik = useFormik({
-        initialValues: {
-            title: "",
-            description: ""
-        },
-        validate: values => {
-            let errors = {};
-            if (!values.title) {
-                errors.title = "*Title is required";
-            }
-            return errors;
-        },
+        initialValues,
+        validate,
         onSubmit: values => {
             const current = new Date();
             const date = `${current.getDate()} ${current.toLocaleString("default", {
@@ -43,7 +47,7 @@ export default function CreateTodo() {
                         <label htmlFor="title" className="ml-28 ">Title</label><br />
                         <input type="text" placeholder="Enter title" id="title" className="rounded-sm ml-28 px-96 py-4 border border-black text-left" value={formik.title} onChange={formik.handleChange} />
                     </div>
-                    {formik.errors.title ? <div>{formik.errors.title}</div> : null}
+                    {formik.errors.title ? <div className="text-red-800 text-center">{formik.errors.title}</div> : null}
                     <br />
                     <div>
                         <label htmlFor="description" className="ml-28 ">Description</label><br />
